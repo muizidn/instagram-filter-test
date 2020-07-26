@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CIFilter" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,7 +685,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Main" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -703,15 +705,269 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CIFilter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1174" height="517"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eeq-zl-E0m">
+                                <rect key="frame" x="20" y="40" width="1134" height="457"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O60-UX-yaF">
+                                        <rect key="frame" x="0.0" y="0.0" width="626" height="457"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="image-to-test-ci-filter" id="jZB-Wu-Iou"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="70B-eW-kI2">
+                                        <rect key="frame" x="634" y="237" width="500" height="220"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-6w-NDe" userLabel="Reset">
+                                                <rect key="frame" x="-6" y="192" width="75" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="oz4-W6-XVa">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="resetFilters:" target="XfG-lQ-9wD" id="lfo-Hz-Mqk"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yig-K7-eqE">
+                                                <rect key="frame" x="-6" y="163" width="92" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Apply all" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="hbk-YS-q6D">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="applyAllFilters:" target="XfG-lQ-9wD" id="C0i-ir-YVA"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XXy-04-27l">
+                                                <rect key="frame" x="-6" y="134" width="88" height="32"/>
+                                                <buttonCell key="cell" type="push" title="TiltShift" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Lbf-Bg-Itf">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="tiltShift:" target="XfG-lQ-9wD" id="MDq-GA-qDE"/>
+                                                </connections>
+                                            </button>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1qM-cY-Tju">
+                                                <rect key="frame" x="0.0" y="94" width="500" height="39"/>
+                                                <subviews>
+                                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nvd-Ns-hjI">
+                                                        <rect key="frame" x="0.0" y="23" width="500" height="16"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qSd-Hk-76h" userLabel="Filter">
+                                                                <rect key="frame" x="-2" y="0.0" width="463" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Brightness" id="LAK-2J-luu">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bSl-K4-XCz">
+                                                                <rect key="frame" x="465" y="0.0" width="37" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="dgh-p6-qBj">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-ZN-7Kt">
+                                                        <rect key="frame" x="-2" y="-2" width="504" height="19"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-1" maxValue="1" tickMarkPosition="above" sliderType="linear" id="rRP-OT-tTT"/>
+                                                        <connections>
+                                                            <action selector="brightnessSlider:" target="XfG-lQ-9wD" id="kbF-Ye-avF"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="H6b-ZN-7Kt" firstAttribute="width" secondItem="1qM-cY-Tju" secondAttribute="width" id="VKC-Mp-quV"/>
+                                                    <constraint firstItem="nvd-Ns-hjI" firstAttribute="width" secondItem="1qM-cY-Tju" secondAttribute="width" id="k34-Vb-B7L"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezl-qD-iDc">
+                                                <rect key="frame" x="0.0" y="47" width="500" height="39"/>
+                                                <subviews>
+                                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NxF-pX-qXO">
+                                                        <rect key="frame" x="0.0" y="23" width="500" height="16"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gr0-Q1-Iq3" userLabel="Filter">
+                                                                <rect key="frame" x="-2" y="0.0" width="463" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Contrast" id="Ty5-sR-H6o">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tzX-RP-NBH">
+                                                                <rect key="frame" x="465" y="0.0" width="37" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="wRs-hF-3NQ">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XXZ-Lg-rhG">
+                                                        <rect key="frame" x="-2" y="-2" width="504" height="19"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.25" maxValue="4" doubleValue="0.25" tickMarkPosition="above" sliderType="linear" id="V33-Mh-yqd"/>
+                                                        <connections>
+                                                            <action selector="contrastSlider:" target="XfG-lQ-9wD" id="yZh-rR-xQf"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="NxF-pX-qXO" firstAttribute="width" secondItem="ezl-qD-iDc" secondAttribute="width" id="O77-Gr-IvF"/>
+                                                    <constraint firstItem="XXZ-Lg-rhG" firstAttribute="width" secondItem="ezl-qD-iDc" secondAttribute="width" id="yjH-eH-Adt"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-cO-MTM">
+                                                <rect key="frame" x="0.0" y="0.0" width="500" height="39"/>
+                                                <subviews>
+                                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-p1-Gxv">
+                                                        <rect key="frame" x="0.0" y="23" width="500" height="16"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OOG-MK-y9u" userLabel="Filter">
+                                                                <rect key="frame" x="-2" y="0.0" width="463" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Saturation" id="aLG-My-EUF">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bsR-v2-IvE">
+                                                                <rect key="frame" x="465" y="0.0" width="37" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="fO1-XG-0Fz">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-uP-N8E">
+                                                        <rect key="frame" x="-2" y="-2" width="504" height="19"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="2" tickMarkPosition="above" sliderType="linear" id="ANF-5W-9mg"/>
+                                                        <connections>
+                                                            <action selector="saturationSlider:" target="XfG-lQ-9wD" id="ETE-fS-EHR"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Ult-uP-N8E" firstAttribute="width" secondItem="gnf-cO-MTM" secondAttribute="width" id="BmQ-aD-Sen"/>
+                                                    <constraint firstItem="coJ-p1-Gxv" firstAttribute="width" secondItem="gnf-cO-MTM" secondAttribute="width" id="X7Z-qb-nyB"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ezl-qD-iDc" firstAttribute="width" secondItem="70B-eW-kI2" secondAttribute="width" id="TOf-As-3L3"/>
+                                            <constraint firstItem="1qM-cY-Tju" firstAttribute="width" secondItem="70B-eW-kI2" secondAttribute="width" id="aah-Hs-fCS"/>
+                                            <constraint firstItem="gnf-cO-MTM" firstAttribute="width" secondItem="70B-eW-kI2" secondAttribute="width" id="aq7-QC-YMz"/>
+                                            <constraint firstAttribute="width" constant="500" id="uxI-1O-mjk"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="eeq-zl-E0m" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Rzu-ui-2vM"/>
+                            <constraint firstItem="eeq-zl-E0m" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="aHH-fn-31l"/>
+                            <constraint firstAttribute="bottom" secondItem="eeq-zl-E0m" secondAttribute="bottom" constant="40" id="hZT-On-zjK"/>
+                            <constraint firstAttribute="trailing" secondItem="eeq-zl-E0m" secondAttribute="trailing" constant="20" id="mZU-lw-jVL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="applyAllFilter" destination="Yig-K7-eqE" id="Gih-Lx-7V1"/>
+                        <outlet property="brightnessSliderControl" destination="H6b-ZN-7Kt" id="AoL-nJ-oZf"/>
+                        <outlet property="brightnessValue" destination="bSl-K4-XCz" id="w5X-yk-o2u"/>
+                        <outlet property="contrastSliderControl" destination="XXZ-Lg-rhG" id="0h7-yc-2cR"/>
+                        <outlet property="contrastValue" destination="tzX-RP-NBH" id="8UL-ku-qEq"/>
+                        <outlet property="imageView" destination="O60-UX-yaF" id="ll4-rn-znw"/>
+                        <outlet property="saturationSliderControl" destination="Ult-uP-N8E" id="bnq-pK-jzP"/>
+                        <outlet property="saturationValue" destination="bsR-v2-IvE" id="vL8-CP-jwu"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="342" y="772"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-to-test-ci-filter" width="626" height="457"/>
+    </resources>
 </document>

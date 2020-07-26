@@ -11,6 +11,7 @@
 		A70ADC3C24CC5E110052A338 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70ADC3B24CC5E110052A338 /* ViewController.swift */; };
 		A70ADC3E24CC5E150052A338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A70ADC3D24CC5E150052A338 /* Assets.xcassets */; };
 		A70ADC4124CC5E150052A338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A70ADC3F24CC5E150052A338 /* Main.storyboard */; };
+		A70ADC5224CD2E470052A338 /* image-to-test-ci-filter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A70ADC5124CD2E470052A338 /* image-to-test-ci-filter.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		A70ADC4024CC5E150052A338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A70ADC4224CC5E150052A338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A70ADC4324CC5E150052A338 /* CIFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CIFilter.entitlements; sourceTree = "<group>"; };
+		A70ADC5124CD2E470052A338 /* image-to-test-ci-filter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-to-test-ci-filter.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		A70ADC3824CC5E110052A338 /* CIFilter */ = {
 			isa = PBXGroup;
 			children = (
+				A70ADC5124CD2E470052A338 /* image-to-test-ci-filter.jpg */,
 				A70ADC3924CC5E110052A338 /* AppDelegate.swift */,
 				A70ADC3B24CC5E110052A338 /* ViewController.swift */,
 				A70ADC3D24CC5E150052A338 /* Assets.xcassets */,
@@ -121,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A70ADC5224CD2E470052A338 /* image-to-test-ci-filter.jpg in Resources */,
 				A70ADC3E24CC5E150052A338 /* Assets.xcassets in Resources */,
 				A70ADC4124CC5E150052A338 /* Main.storyboard in Resources */,
 			);
