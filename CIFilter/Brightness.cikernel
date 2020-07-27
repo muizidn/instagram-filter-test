@@ -1,0 +1,4 @@
+kernel vec4 BrightnessKernel(sampler src, float brightness) {
+  vec4 textureColor = sample(src, samplerCoord(src));
+  return vec4((textureColor.rgb + vec3(brightness)), textureColor.w);
+}
