@@ -2,6 +2,6 @@
 
 macOS app, Appkit
 
-GPUImage using SVN svn checkout https://github.com/BradLarson/GPUImage2/trunk/framework GPUImage2
+GPUImage using SVN `svn checkout https://github.com/BradLarson/GPUImage2/trunk/framework GPUImage2`
 
 
